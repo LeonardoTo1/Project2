@@ -40,8 +40,13 @@ private int[] average;
 	@Override
 	protected char letterAverage() {
 		// TODO Auto-generated method stub
-		//int asciiInt = calAlverage()
-		
-		return 0;
+		int ascii = 0;
+		char average;
+		for (int i = 0; i < stID.length(); i++) {
+			char letter = stID.charAt(i);
+			ascii += (int) letter;
+		}
+		average = (char) (ascii/4);
+		return average;
 	}
 }
