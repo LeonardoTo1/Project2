@@ -52,15 +52,12 @@ public class PosAvg {
 			strg = br.readLine();
 			strg = br.readLine();
 			strg = br.readLine();
-			strg = br.readLine();
-			strg = br.readLine();
-			strg = br.readLine();
 			while(strg != null)
 			{
 				
-				String[] idInfo = strg.split("     ");
+				String[] idInfo = strg.split("  ");
 				String id = idInfo[0];
-				id = id.substring(4);
+				id = id.substring(1);
 				if (numStations == capacity) 
 				{
      
@@ -81,7 +78,33 @@ public class PosAvg {
 	      return stID;
 	   }
 	 
-	 public int indexOfStation(String stID) {
-		 
+	 public int indexOfStation() {
+		 int index = 0;
+		 int count = 0;
+		 for (int x = 0; x < numStations; x ++) {
+			  String currStation = stationid[x];
+		 for (int i = 0; i < stID.length(); i++) {
+			 
+			  if (stID.charAt(i) == currStation.charAt(i)) {
+			   count+=1;
+			  }
+			 
+		 }
+		 if (count == 4) {
+			 return x+1;
+			   }
+			 else count = 0;
+		 }
+		  
+		 return index;
 	 }
+	 public String toString() 
+	    {
+		 int stationindex = indexOfStation()-1;
+		 String Line = "This index is average of "+ stationid[stationindex-1] + " and " +stationid[stationindex+1] + ", "+ stationid[stationindex-2] +" and "+ stationid[stationindex+2] +", and so on.";
+
+		 
+		 return Line;
+
+	    }
 }
