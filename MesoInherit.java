@@ -1,22 +1,26 @@
 import java.lang.Math;
+import java.util.Arrays;
 
-import com.sun.javafx.css.CalculatedValue;
 public class MesoInherit extends MesoAbstract{
-private String stID;
 private int[] average;
-	public MesoInherit(String stID) {
+private MesoStation stID;
+private String ID;
+
+
+	public MesoInherit(MesoStation stID) {
 		average = new int[3];
 		this.stID = stID;
+		ID = stID.toString();
 	}
 	@Override
 	 protected int[] calAverage() {
 		// TODO Auto-generated method stub
 		int ascii = 0;
 		int calc;
-		for (int i = 0; i < stID.length(); i++) {
-			char letter = stID.charAt(i);
+		
+		for (int i = 0; i < ID.length(); i++) {
+			char letter = ID.charAt(i);
 			ascii += (int) letter;
-			System.out.println(ascii);
 		}
 		for (int x = 0; x < 3; x++) {
 			calc = ascii/4;
@@ -42,8 +46,8 @@ private int[] average;
 		// TODO Auto-generated method stub
 		int ascii = 0;
 		char average;
-		for (int i = 0; i < stID.length(); i++) {
-			char letter = stID.charAt(i);
+		for (int i = 0; i < ID.length(); i++) {
+			char letter = ID.charAt(i);
 			ascii += (int) letter;
 		}
 		average = (char) (ascii/4);
