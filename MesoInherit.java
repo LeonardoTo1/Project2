@@ -10,13 +10,15 @@ private String ID;
 	public MesoInherit(MesoStation stID) {
 		average = new int[3];
 		this.stID = stID;
-		ID = stID.toString();
+		ID = stID.getStID();
 	}
-	@Override
+	public MesoStation getID(){
+		return stID;
+	}
 	 protected int[] calAverage() {
 		// TODO Auto-generated method stub
-		int ascii = 0;
-		int calc;
+		double ascii = 0;
+		double calc;
 		
 		for (int i = 0; i < ID.length(); i++) {
 			char letter = ID.charAt(i);
@@ -34,8 +36,10 @@ private String ID;
 				
 			}
 			else {
-				average[x] = calc;
-				
+			if(calc-(int)calc >= .5) {
+				average[x] = (int) Math.ceil(calc);
+			}
+			else average[x] = (int) Math.floor(calc);
 			}
 		}
 		return average;
@@ -44,13 +48,20 @@ private String ID;
 	@Override
 	protected char letterAverage() {
 		// TODO Auto-generated method stub
-		int ascii = 0;
+		double ascii = 0;
+		double calc;
 		char average;
 		for (int i = 0; i < ID.length(); i++) {
 			char letter = ID.charAt(i);
-			ascii += (int) letter;
+			ascii += (double) letter;
 		}
-		average = (char) (ascii/4);
+		calc = ascii/4;
+		if(calc-(int)calc >= .5) {
+			average = (char) Math.ceil(calc);
+		}
+		else average = (char) Math.floor(calc);
+		
+		
 		return average;
 	}
 }

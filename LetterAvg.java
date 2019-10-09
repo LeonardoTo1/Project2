@@ -90,10 +90,8 @@ public int numberOfStationWithLetterAvg() {
 }
 public String toString() 
 {
- String Line = "They are:\n" +stationid[46] + "\n" + stationid[47] + "\n" + stationid[48] + "\n" + stationid[49] + "\n"
-		 + stationid[50] + "\n" + stationid[51] + "\n" + stationid[52] + "\n" + stationid[53];
-
- 
+ String Line = "\nThey are:\n" +stationid[54] + "\n" + stationid[55];
+		
  return Line;
  
 }

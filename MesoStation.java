@@ -14,9 +14,4 @@ public class MesoStation
 	public String getStID() {
 		return stID;
 	}
-	public String toString() 
-	{ 
-	 return stID;
-	 
-	}
 }
